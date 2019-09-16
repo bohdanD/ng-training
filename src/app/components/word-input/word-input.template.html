@@ -1,4 +1,4 @@
 <div>
-    <input type="text" [placeholder]="inputPlaceholder" [(ngModel)]="word">
+    <input type="text" [placeholder]="inputPlaceholder" [(ngModel)]="word" (keydown.enter)="searchHandler()">
     <input type="button" value="click" (click)="searchHandler()">
 </div>
