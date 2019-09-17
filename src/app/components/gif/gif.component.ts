@@ -7,10 +7,12 @@ import { GifAPIService } from 'src/app/services/gif-api.service';
 })
 export class GifComponent {
     private _word: string;
+    public isLoading = false;
     
     @Input() set word(value) {
         if (value) {
             this.gifApi.getGifUrl(value).subscribe(this.subscribeCallback.bind(this));
+            this.isLoading = true;
         }
         this._word = value;
     }
@@ -27,7 +29,12 @@ export class GifComponent {
             this.url = resp.data[0].images.original.url;
         } catch {
             this.url = this.gifApi.sadGif;
+        } finally {
+          //this.isLoading = false;
         }
-        
+    }
+
+    onLoad() {
+      this.isLoading = false;
     }
 }

@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { WordInputComponent } from './components/word-input/word-input.component';
 import { GifComponent } from './components/gif/gif.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WordInputComponent,
-    GifComponent
+    GifComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

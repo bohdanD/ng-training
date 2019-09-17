@@ -1,4 +1,8 @@
 <div>
-    <h3>{{word}}</h3>
-    <img [src]="url" alt="">
+  <h3>{{word}}</h3>
+  <loading-component [doLoading]="isLoading"></loading-component>
+  <img [src]="url" alt="" (onloadeddata)="onLoad()">
+  <div>
+    <a href="url">{{url}}</a>
+  </div>
 </div>
