@@ -8,11 +8,14 @@ import { GifAPIService } from 'src/app/services/gif-api.service';
 export class GifComponent {
     private _word: string;
     public isLoading = false;
+
+    private _loading = 'https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif';
     
     @Input() set word(value) {
         if (value) {
             this.gifApi.getGifUrl(value).subscribe(this.subscribeCallback.bind(this));
-            this.isLoading = true;
+            //this.isLoading = true;
+            this.url = this._loading;
         }
         this._word = value;
     }
