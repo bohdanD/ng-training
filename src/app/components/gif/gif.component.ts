@@ -15,23 +15,23 @@ export class GifComponent {
         if (value) {
             this.gifApi.getGifUrl(value).subscribe(this.subscribeCallback.bind(this));
             //this.isLoading = true;
-            this.url = this._loading;
+            // this.url = this._loading;
         }
         this._word = value;
     }
     get word() { return this._word };
 
-    public url : string;
+    public urls : Array<string>;
 
     constructor(private gifApi: GifAPIService) {
-        this.url = '';
+        this.urls = [];
     }
 
     private subscribeCallback(resp) {
         try {
-            this.url = resp.data[0].images.original.url;
+            this.urls = resp.data.map(d => d.images.original.url);
         } catch {
-            this.url = this.gifApi.sadGif;
+            this.urls[0] = this.gifApi.sadGif;
         } finally {
           //this.isLoading = false;
         }
